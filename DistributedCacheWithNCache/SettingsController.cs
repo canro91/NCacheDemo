@@ -1,5 +1,5 @@
 ﻿using DistributedCacheWithNCache.Responses;
-using DistributedCacheWithNCache.Servcies;
+using DistributedCacheWithNCache.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DistributedCacheWithNCache

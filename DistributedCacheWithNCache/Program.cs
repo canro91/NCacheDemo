@@ -1,10 +1,24 @@
-using DistributedCacheWithNCache.Servcies;
+using Alachisoft.NCache.Caching.Distributed;
+using Alachisoft.NCache.Client;
+using DistributedCacheWithNCache.Services;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 
+builder.Services.AddNCacheDistributedCache((options) =>
+{
+    options.ServerList = new List<ServerInfo>
+    {
+        new ServerInfo(IPAddress.Parse("127.0.0.1"), 9801),
+        new ServerInfo(IPAddress.Parse("127.0.0.1"), 9802)
+    };
+    options.CacheName = "DemoClusteredCache";
+    options.EnableLogs = true;
+    options.ExceptionsEnabled = true;
+});
 builder.Services.AddTransient<SettingsService>();
 
 
