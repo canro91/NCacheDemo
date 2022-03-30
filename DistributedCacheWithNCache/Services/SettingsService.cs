@@ -21,7 +21,7 @@ namespace DistributedCacheWithNCache.Services
         private static async Task<SettingsResponse> GetSettingsAsync(int propertyId)
         {
             // Beep, boop...Aligning satellites...
-            await Task.Delay(5 * 1000);
+            await Task.Delay(3 * 1000);
 
             return new SettingsResponse
             {
