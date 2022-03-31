@@ -1,13 +1,12 @@
-﻿namespace DistributedCacheWithNCache
+﻿namespace DistributedCacheWithNCache;
+
+public static class WebApplicationExtensions
 {
-    public static class WebApplicationExtensions
+    public static void Deconstruct(this WebApplicationBuilder builder,
+                                   out WebApplicationBuilder b,
+                                   out IServiceCollection services)
     {
-        public static void Deconstruct(this WebApplicationBuilder builder,
-                                       out WebApplicationBuilder b,
-                                       out IServiceCollection services)
-        {
-            b = builder;
-            services = builder.Services;
-        }
+        b = builder;
+        services = builder.Services;
     }
 }
