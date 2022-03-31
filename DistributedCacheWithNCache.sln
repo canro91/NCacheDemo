@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedCacheWithNCache", "DistributedCacheWithNCache\DistributedCacheWithNCache.csproj", "{540F90DA-7B88-44C3-BC7B-C75677F36E7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCacheWithNCache.Tests", "DistributedCacheWithNCache.Tests\DistributedCacheWithNCache.Tests.csproj", "{4E1717BA-ACA6-4731-B868-D340D91CB5CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCacheDemo.Tests", "NCacheDemo.Tests\NCacheDemo.Tests.csproj", "{DD6BABE3-81D1-4D55-9BC5-A51E3794A2FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{540F90DA-7B88-44C3-BC7B-C75677F36E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{540F90DA-7B88-44C3-BC7B-C75677F36E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{540F90DA-7B88-44C3-BC7B-C75677F36E7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E1717BA-ACA6-4731-B868-D340D91CB5CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E1717BA-ACA6-4731-B868-D340D91CB5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E1717BA-ACA6-4731-B868-D340D91CB5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E1717BA-ACA6-4731-B868-D340D91CB5CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6BABE3-81D1-4D55-9BC5-A51E3794A2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6BABE3-81D1-4D55-9BC5-A51E3794A2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6BABE3-81D1-4D55-9BC5-A51E3794A2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6BABE3-81D1-4D55-9BC5-A51E3794A2FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

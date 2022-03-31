@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Threading.Tasks;
 
-namespace DistributedCacheWithNCache.Tests;
+namespace NCacheDemo.Tests;
 
 [TestClass]
 public class NCacheTests
