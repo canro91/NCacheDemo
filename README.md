@@ -9,7 +9,7 @@ It contains two projects:
 * [NCacheDemo.Tests](https://github.com/canro91/NCacheDemo/tree/main/NCacheDemo.Tests): It shows NCache basic caching operations in a MSTest Unit Test project.
 * [DistributedCacheWithNCache](https://github.com/canro91/NCacheDemo/tree/main/0-DistributedCache/DistributedCacheWithNCache): It shows how to use ASP.NET Core IDistributedCache provider with NCache to speed up an API endpoint that makes a dummy database call.
 
-## 1. NCache & Full-Text Search
+## 1. [NCache & Full-Text Search](https://canro91.github.io/2022/08/08/FullTextSearchWithNCache/)
 
 It contains two projects:
 
