@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.32112.339
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-DistributedCache", "0-DistributedCache", "{A5CA09B5-05C6-46EC-B231-26C79DBAA7E7}"
 EndProject
@@ -16,6 +16,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchMovies.Search", "1-DistributedLucene\SearchMovies.Search\SearchMovies.Search.csproj", "{E6401405-758B-41DC-AA15-B30FE120EE71}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchMovies.Shared", "1-DistributedLucene\SearchMovies.Shared\SearchMovies.Shared.csproj", "{ED4A3260-900D-42A6-83CA-98257AAF017E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-PubSub", "2-PubSub", "{F8F17344-3557-428B-8287-2B826E42A2CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviePublisher", "2-PubSub\MoviePublisher\MoviePublisher.csproj", "{28C8D92B-3B2A-4C69-B41D-9E518CDE073B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieSubscriber", "2-PubSub\MovieSubscriber\MovieSubscriber.csproj", "{02689EF0-9262-4927-92F0-ED25C243101E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Shared", "2-PubSub\Movies.Shared\Movies.Shared.csproj", "{DEF100B2-38C3-446D-A24E-C6807BABEECE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +51,18 @@ Global
 		{ED4A3260-900D-42A6-83CA-98257AAF017E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED4A3260-900D-42A6-83CA-98257AAF017E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED4A3260-900D-42A6-83CA-98257AAF017E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C8D92B-3B2A-4C69-B41D-9E518CDE073B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C8D92B-3B2A-4C69-B41D-9E518CDE073B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C8D92B-3B2A-4C69-B41D-9E518CDE073B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C8D92B-3B2A-4C69-B41D-9E518CDE073B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02689EF0-9262-4927-92F0-ED25C243101E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02689EF0-9262-4927-92F0-ED25C243101E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02689EF0-9262-4927-92F0-ED25C243101E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02689EF0-9262-4927-92F0-ED25C243101E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEF100B2-38C3-446D-A24E-C6807BABEECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF100B2-38C3-446D-A24E-C6807BABEECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF100B2-38C3-446D-A24E-C6807BABEECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF100B2-38C3-446D-A24E-C6807BABEECE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +73,9 @@ Global
 		{9B7B16D9-025D-4C18-AEC0-B11448084758} = {4EBEBF7F-C21C-4831-99C7-1B3D808C8B5E}
 		{E6401405-758B-41DC-AA15-B30FE120EE71} = {4EBEBF7F-C21C-4831-99C7-1B3D808C8B5E}
 		{ED4A3260-900D-42A6-83CA-98257AAF017E} = {4EBEBF7F-C21C-4831-99C7-1B3D808C8B5E}
+		{28C8D92B-3B2A-4C69-B41D-9E518CDE073B} = {F8F17344-3557-428B-8287-2B826E42A2CB}
+		{02689EF0-9262-4927-92F0-ED25C243101E} = {F8F17344-3557-428B-8287-2B826E42A2CB}
+		{DEF100B2-38C3-446D-A24E-C6807BABEECE} = {F8F17344-3557-428B-8287-2B826E42A2CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4ED7A5C2-0902-417E-82BC-E3D983CCD806}
