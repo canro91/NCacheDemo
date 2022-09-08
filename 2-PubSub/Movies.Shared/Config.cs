@@ -8,6 +8,5 @@ public class Config
     public class Topics
     {
         public const string NewReleases = "newReleases";
-        public const string Announcements = "announcements";
     }
 }
