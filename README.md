@@ -15,3 +15,10 @@ It contains two projects:
 
 * [Loader](https://github.com/canro91/NCacheDemo/tree/main/1-DistributedLucene/SearchMovies.Loader): It populates a Distributed Lucene cache with 50 random movies from IMDb using a Console app.
 * [Searcher](https://github.com/canro91/NCacheDemo/tree/main/1-DistributedLucene/SearchMovies.Search): It shows how to apply a Lucene query to find movies, again with a Console app.
+
+## 2. Pub/Sub
+
+It contains two projects:
+
+* [Publisher](https://github.com/canro91/NCacheDemo/tree/main/2-PubSub/MoviePublisher): It publishes new movies releases to a topic
+* [Subscriber](https://github.com/canro91/NCacheDemo/tree/main/2-PubSub/MovieSubscriber): It creates a non-durable subscription to listen to new movie releases
