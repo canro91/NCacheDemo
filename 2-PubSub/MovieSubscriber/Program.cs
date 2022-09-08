@@ -5,12 +5,12 @@ using Movies.Shared.Entities;
 
 ICache cache = CacheManager.GetCache(Config.CacheName);
 //             ^^^^^
-// 1. Create a NCache instance
+// 1. Create an NCache cache instance
 
 string topicName = Config.Topics.NewReleases;
 ITopic newReleasesTopic = cache.MessagingService.GetTopic(topicName);
 //                        ^^^^^
-// 2. Create a new topic
+// 2. Grab the same topic
 
 newReleasesTopic.OnTopicDeleted = OnTopicDeleted;
 //               ^^^^^
@@ -25,7 +25,7 @@ else
     ITopicSubscription newReleasesSubscriber
         = newReleasesTopic.CreateSubscription(MessageReceived, DeliveryMode.Async);
     //    ^^^^^
-    // 3. Attach a callback
+    // 3. Attach a callback for new movies
 
     // Or
     // Alternative to create a Durable subscription
@@ -41,6 +41,8 @@ else
     Console.ReadKey();
 
     newReleasesSubscriber.UnSubscribe();
+    //                    ^^^^^
+    // 4. Unsubscribe...
 }
 
 void MessageReceived(object sender, MessageEventArgs args)

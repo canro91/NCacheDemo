@@ -6,7 +6,7 @@ using Movies.Shared.Extensions;
 
 ICache cache = CacheManager.GetCache(Config.CacheName);
 //             ^^^^^
-// 1. Create a NCache instance
+// 1. Create an NCache cache instance
 
 string topicName = Config.Topics.NewReleases;
 ITopic newReleasesTopic = cache.MessagingService.CreateTopic(topicName);
@@ -47,9 +47,10 @@ foreach (var movie in newReleases)
 
     var message = movie.ToMessage(Config.Expiration);
     //            ^^^^^
+    // 3. Create a NCache message
     await newReleasesTopic.PublishAsync(message, DeliveryOption.All, true);
     //                     ^^^^^
-    // 3. Publish some movies
+    // 4. Publish it
 
     await Task.Delay(1 * 1_000);
 }
