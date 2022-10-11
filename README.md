@@ -16,7 +16,7 @@ It contains two projects:
 * [Loader](https://github.com/canro91/NCacheDemo/tree/main/1-DistributedLucene/SearchMovies.Loader): It populates a Distributed Lucene cache with 50 random movies from IMDb using a Console app.
 * [Searcher](https://github.com/canro91/NCacheDemo/tree/main/1-DistributedLucene/SearchMovies.Search): It shows how to apply a Lucene query to find movies, again with a Console app.
 
-## 2. Pub/Sub
+## 2. [Pub/Sub](https://www.alachisoft.com/blogs/pub-sub-with-ncache/)
 
 It contains two projects:
 
