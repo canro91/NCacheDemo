@@ -23,6 +23,6 @@ It contains two projects:
 * [Publisher](https://github.com/canro91/NCacheDemo/tree/main/2-PubSub/MoviePublisher): It publishes new movies releases to a topic
 * [Subscriber](https://github.com/canro91/NCacheDemo/tree/main/2-PubSub/MovieSubscriber): It creates a non-durable subscription to listen to new movie releases
 
-## 3. GeoSpatial Indexes for Distributed Lucene
+## 3. [GeoSpatial Indexes for Distributed Lucene](https://www.alachisoft.com/blogs/geospatial-indexes-for-distributed-lucene-with-ncache/)
 
 * [Landmarks](https://github.com/canro91/NCacheDemo/tree/main/3-GeoSpatialIndexes/Landmarks): It populates a Distributed Lucene cache with 5 or 6 landmarks around Paris. Then, it searches the closest ones to the airport.
