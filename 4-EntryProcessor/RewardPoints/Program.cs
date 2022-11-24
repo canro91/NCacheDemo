@@ -1,4 +1,5 @@
 ﻿using Alachisoft.NCache.Client;
+using RewardPoints;
 using RewardPoints.Shared;
 using System.Diagnostics;
 
@@ -12,6 +13,7 @@ var customers = new List<Customer>
     new Customer(4, "Daniel", DateTime.Today.AddDays(-3), 10),
     new Customer(5, "Earl", DateTime.Today, 20)
 };
+customers.AddRange(CustomerGenerator.Generate(count: 15, startingId: 6));
 
 var keys = customers.Select(c => c.ToCacheKey());
 var cacheItems = customers.ToDictionary(c => c.ToCacheKey(), c => c.ToCacheItem());
