@@ -26,7 +26,7 @@ public class NCacheTests
     }
 
     [TestMethod]
-    public async Task RetrieveNonExistingItem()
+    public void RetrieveNonExistingItem()
     {
         ICache cache = CacheManager.GetCache(CacheName);
 

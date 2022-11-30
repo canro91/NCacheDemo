@@ -16,14 +16,34 @@ var customers = new List<Customer>
 customers.AddRange(CustomerGenerator.Generate(count: 15, startingId: 6));
 
 var keys = customers.Select(c => c.ToCacheKey());
-var cacheItems = customers.ToDictionary(c => c.ToCacheKey(), c => c.ToCacheItem());
 
-// 0. Load customers
+// Load customers
 ICache cache = CacheManager.GetCache(CacheName);
-cache.AddBulk(cacheItems);
+PopulateCache(cache, customers);
 
-// 1. Double customer points using regular cache operations
-var withoutEntryProcessorWatch = Stopwatch.StartNew();
+// Part 1. Using regular cache operations
+var withAtomicMethods = Stopwatch.StartNew();
+
+foreach (var key in keys)
+{
+    var customer = cache.Get<Customer>(key);
+    if (customer.LastPurchase >= DateTime.Today.AddDays(-5))
+    {
+        var updated = customer with { Points = customer.Points * 2 };
+        cache.Insert(key, updated);
+    }
+}
+
+withAtomicMethods.Stop();
+
+var alice = cache.Get<Customer>(customers.First().ToCacheKey());
+Debug.Assert(alice != null && alice.Points == 200);
+
+// Load customers again
+PopulateCache(cache, customers);
+
+// Part 2. Using Bulk operations
+var withBulkMethods = Stopwatch.StartNew();
 
 var retrievedItems = cache.GetCacheItemBulk(keys);
 var itemsToUpdate = new Dictionary<string, CacheItem>();
@@ -38,32 +58,37 @@ foreach (var item in retrievedItems)
 }
 cache.InsertBulk(itemsToUpdate);
 
-withoutEntryProcessorWatch.Stop();
+withBulkMethods.Stop();
 
-var alice = cache.Get<Customer>(customers.First().ToCacheKey());
-Debug.Assert(alice != null && alice.Points == 200);
+// Load customers again
+PopulateCache(cache, customers);
 
-// 3. Purge cache before next run
-cache.RemoveBulk(keys);
-
-// 4. Load customers again
-cache.AddBulk(cacheItems);
-
-// 5. Double customer points using Entry Processor
-var withEntryProcessorWatch = Stopwatch.StartNew();
+// Part 3. Using Entry Processor
+var withEntryProcessor = Stopwatch.StartNew();
 
 var processor = new DoublePointsProcessor();
 var processedEntries = cache.ExecutionService.Invoke(keys, processor);
 
-withEntryProcessorWatch.Stop();
+withEntryProcessor.Stop();
 
 alice = cache.Get<Customer>(customers.First().ToCacheKey());
 Debug.Assert(alice != null && alice.Points == 200);
 
-// 6. Purge cache
+// Purge cache
 cache.RemoveBulk(keys);
 
 Console.WriteLine("Results:");
-Console.WriteLine($"Cache operations: [{withoutEntryProcessorWatch.Elapsed}]");
-Console.WriteLine($"Entry Processor: [{withEntryProcessorWatch.Elapsed}]");
+Console.WriteLine($"Atomic Cache operations: [{withAtomicMethods.Elapsed}]");
+Console.WriteLine($"Bulk Cache operations: [{withBulkMethods.Elapsed}]");
+Console.WriteLine($"Entry Processor: [{withEntryProcessor.Elapsed}]");
 Console.ReadKey();
+
+static void PopulateCache(ICache cache, IEnumerable<Customer> customers)
+{
+    // Purge cache before next run
+    var keys = customers.Select(c => c.ToCacheKey());
+    cache.RemoveBulk(keys);
+
+    var cacheItems = customers.ToDictionary(c => c.ToCacheKey(), c => c.ToCacheItem());
+    cache.AddBulk(cacheItems);
+}
