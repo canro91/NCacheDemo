@@ -26,6 +26,15 @@ public class NCacheTests
     }
 
     [TestMethod]
+    public async Task RetrieveNonExistingItem()
+    {
+        ICache cache = CacheManager.GetCache(CacheName);
+
+        var cachedMovie = cache.Get<Movie>("ThisMovieDoesNotExist");
+        Assert.IsNull(cachedMovie);
+    }
+
+    [TestMethod]
     public async Task UpdateItem()
     {
         ICache cache = CacheManager.GetCache("demoCache");
