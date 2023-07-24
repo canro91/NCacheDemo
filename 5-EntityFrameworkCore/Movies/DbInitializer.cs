@@ -1,0 +1,122 @@
+﻿namespace Movies;
+
+public static class DbInitializer
+{
+    public static void Initialize(DatabaseContext context)
+    {
+        if (context.Movies.Any())
+        {
+            return;
+        }
+
+        // 20 random movies taken from IMDb dump
+        // See: https://www.imdb.com/interfaces/
+        var movies = new List<Movie>
+        {
+            new Movie("Welcome to Chechnya", 2020, 7.90m),
+            new Movie("Majnu", 2013, 5.90m),
+            new Movie("Ballerup Boulevard", 1986, 5.40m),
+            new Movie("Zwei schräge Vögel", 1989, 7.70m),
+            new Movie("Chennai 2 Bangkok", 2019, 2.90m),
+            new Movie("Don't Worry Too Much", 1975, 5.30m),
+            new Movie("El rey de la carretera", 1956, 3.60m),
+            new Movie("Symphony of the Heaven City", 2004, 6.20m),
+            new Movie("My Sister's Kids Home Alone", 2012, 4.40m),
+            new Movie("Runaway Day", 2013, 5.90m),
+            new Movie("Komm zu mir zurück", 1944, 5.00m),
+            new Movie("Blues for Willadean", 2012, 6.80m),
+            new Movie("Woman Chasing the Butterfly of Death", 1978, 6.20m),
+            new Movie("Paws-Men", 2018, 6.30m),
+            new Movie("Do It with the Pamango", 1980, 5.60m),
+            new Movie("Robyn Hitchcock: I Often Dream of Trains. A Concert Film.", 2009, 7.80m),
+            new Movie("Singled [Out]", 2017, 6.70m),
+            new Movie("Oz the Great and Powerful", 2013, 6.30m),
+            new Movie("Deti chugunnykh bogov", 1993, 6.70m),
+            new Movie("Valse Sentimentale", 2007, 5.60m),
+            new Movie("Pants on Fire", 1998, 7.00m),
+            new Movie("A Life for Ballet", 2011, 6.30m),
+            new Movie("Jock the Hero Dog", 2011, 4.30m),
+            new Movie("John Wick: Chapter 2", 2017, 7.40m),
+            new Movie("Don Daredevil Rides Again", 1951, 6.20m),
+            new Movie("Pil. Kuril", 2014, 5.70m),
+            new Movie("Alice in Earnestland", 2015, 6.80m),
+            new Movie("Jesse James vs. The Black Train", 2018, 2.50m),
+            new Movie("The Torch", 1950, 5.50m),
+            new Movie("Akatho Puratho", 2017, 7.40m),
+            new Movie("Underworld Informers", 1963, 6.90m),
+            new Movie("Bach et Bottine", 1986, 6.60m),
+            new Movie("La 'Moara cu noroc'", 1957, 7.70m),
+            new Movie("Rangappa Hogbitna", 2011, 6.40m),
+            new Movie("Intolerance", 1916, 7.70m),
+            new Movie("Wayang", 2008, 6.00m),
+            new Movie("Princess of Dreams", 1945, 4.20m),
+            new Movie("Rise of the Fellowship", 2013, 4.00m),
+            new Movie("The Tunnel", 1952, 6.30m),
+            new Movie("Shubh Aarambh", 2017, 6.70m),
+            new Movie("Wonderland", 2011, 3.80m),
+            new Movie("Pilkarski poker", 1989, 7.00m),
+            new Movie("Hamsi Nuri", 1973, 5.40m),
+            new Movie("The Rhythm Section", 2020, 5.40m),
+            new Movie("The Artifact", 2011, 6.00m),
+            new Movie("Winter Journey", 2013, 6.80m),
+            new Movie("Satarupa", 1989, 5.90m),
+            new Movie("Kdo hledá zlaté dno", 1974, 5.00m),
+            new Movie("Intruders", 1984, 6.20m),
+            new Movie("Crying Freeman", 1995, 6.40m),
+            new Movie("Absolute Zombies", 2015, 2.40m),
+            new Movie("Los Locos", 1997, 4.80m),
+            new Movie("Pizza", 2014, 6.20m),
+            new Movie("Starship Troopers: Invasion", 2012, 5.80m),
+            new Movie("Anchoress", 1993, 6.50m),
+            new Movie("Children of the Green Dragon", 2010, 6.80m),
+            new Movie("Day of the Falcon", 2011, 6.60m),
+            new Movie("To the Bright Side", 2021, 6.60m),
+            new Movie("Chambers Gate", 2014, 7.90m),
+            new Movie("Desecrated", 2015, 3.30m),
+            new Movie("And Then Came Lola", 2009, 3.90m),
+            new Movie("Comoara", 1983, 5.20m),
+            new Movie("The White Dawn", 1974, 7.10m),
+            new Movie("Idle Wives", 1916, 5.70m),
+            new Movie("Franchesca", 2018, 2.50m),
+            new Movie("A Turkish Heart with a German Mind", 2009, 4.40m),
+            new Movie("Project Naptime in Sweden", 2014, 7.80m),
+            new Movie("Aatagara", 2015, 7.80m),
+            new Movie("Bedford: The Town They Left Behind", 2009, 7.00m),
+            new Movie("Savage Witches", 2012, 7.60m),
+            new Movie("Creepshow 2", 1987, 6.00m),
+            new Movie("Kvadrat Gear", 2014, 7.90m),
+            new Movie("The Spy with Ten Faces", 1966, 5.30m),
+            new Movie("In Winter", 2017, 6.30m),
+            new Movie("Jeremy Brooks", 2015, 6.40m),
+            new Movie("Lonelyhearts", 1958, 6.70m),
+            new Movie("Sud chesti", 1949, 5.60m),
+            new Movie("Biriken", 2008, 6.40m),
+            new Movie("Teddy Bomb", 2014, 6.20m),
+            new Movie("Ten North Frederick", 1958, 6.80m),
+            new Movie("Lightman", 2017, 6.80m),
+            new Movie("Bricks in Motion", 2016, 7.80m),
+            new Movie("Shamara", 1994, 7.10m),
+            new Movie("Roswell FM", 2014, 5.70m),
+            new Movie("Mumbai's King", 2012, 6.20m),
+            new Movie("Seuls", 2021, 7.60m),
+            new Movie("Madame Rosa", 1977, 7.20m),
+            new Movie("Pen Singam", 2010, 2.80m),
+            new Movie("The End of Summer", 2013, 6.10m),
+            new Movie("Justin Morgan Had a Horse", 1972, 6.70m),
+            new Movie("The Last Witch Hunter", 2015, 5.90m),
+            new Movie("Herra Huu - jestapa jepulis - penikat sipuliks", 1973, 6.70m),
+            new Movie("Inside", 2018, 8.90m),
+            new Movie("Bonjour jeunesse", 1957, 6.20m),
+            new Movie("Replikator", 1994, 2.70m),
+            new Movie("A Matter of Size", 2009, 6.90m),
+            new Movie("Cornered!", 2009, 4.30m),
+            new Movie("Tokyo Sunrise", 2015, 6.20m),
+            new Movie("Drunken Butterflies", 2014, 7.80m),
+        };
+        foreach (var m in movies)
+        {
+            context.Movies.Add(m);
+        }
+        context.SaveChanges();
+    }
+}
