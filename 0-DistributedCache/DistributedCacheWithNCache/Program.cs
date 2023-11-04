@@ -11,7 +11,7 @@ services.AddNCacheDistributedCache((options) =>
     options.EnableLogs = true;
     options.ExceptionsEnabled = true;
 });
-services.AddTransient<SettingsService>();
+services.AddTransient<SlowService>();
 
 var app = builder.Build();
 app.MapControllers();

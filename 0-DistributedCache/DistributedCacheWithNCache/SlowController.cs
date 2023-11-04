@@ -6,17 +6,17 @@ namespace DistributedCacheWithNCache;
 
 [Route("api/[controller]")]
 [ApiController]
-public class SettingsController : ControllerBase
+public class SlowController : ControllerBase
 {
-    private readonly SettingsService _settingsService;
+    private readonly SlowService _settingsService;
 
-    public SettingsController(SettingsService settingsService)
+    public SlowController(SlowService settingsService)
     {
         _settingsService = settingsService;
     }
 
     [HttpGet]
-    public async Task<SettingsResponse> GetAsync(int propertyId)
+    public async Task<Something> GetAsync(int propertyId)
     {
         return await _settingsService.GetAsync(propertyId);
     }

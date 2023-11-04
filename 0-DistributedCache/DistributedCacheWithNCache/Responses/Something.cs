@@ -1,8 +1,8 @@
 ﻿namespace DistributedCacheWithNCache.Responses;
 
-public class SettingsResponse
+public class Something
 {
-    public int PropertyId { get; set; }
+    public int SomeId { get; set; }
 
     public string? Value { get; set; }
 }
